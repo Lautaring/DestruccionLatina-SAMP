@@ -1,0 +1,14 @@
+Name=[null]
+Renter=ForRent
+Rentable=0
+Rentcost=0
+Cost=50000
+Sell=49000
+Interior=2
+Virtualworld=1013
+Locked=1
+X=222.979995
+Y=1239.829956
+Z=1082.140014
+RentPay=0
+RentGet=0

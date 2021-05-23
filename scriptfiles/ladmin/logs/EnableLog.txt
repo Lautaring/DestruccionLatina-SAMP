@@ -1,0 +1,4 @@
+[23.7.2020 1:8:47] |Info| »{EAEAEA} El administrador {0080FF}Psicoloco{EAEAEA} ha habilitado el reading commands.
+[12.12.2020 12:35:41] |Info| »{EAEAEA} El administrador {0080FF}Psicoloco{EAEAEA} ha habilitado el auto login.
+[12.12.2020 12:36:26] |Info| »{EAEAEA} El administrador {0080FF}Psicoloco{EAEAEA} ha habilitado el antispam.
+[13.1.2021 6:10:45] |Info| »{EAEAEA} El administrador {0080FF}Psicoloco{EAEAEA} ha habilitado el auto login.

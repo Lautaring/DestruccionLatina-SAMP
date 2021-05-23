@@ -1,0 +1,15 @@
+--- QuickPawn v2.1 Change Log ---
+
+* Functions for the file currently being worked on are listed.
+
+* Functions are now displayed in an interactive tree, allowing double clicking the function to insert it into the file.
+
+* New -> SAMP Script now works properly under Linux.
+
+* Bugs with Insert -> Time/Date fixed.
+
+* Some minor visual changes made.
+
+* Options menu added, allowing users to bring up the output box at any time.
+
+* Ability to change font added under the Options menu.

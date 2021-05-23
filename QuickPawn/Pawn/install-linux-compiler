@@ -1,0 +1,15 @@
+#! /bin/bash
+# installs the linux PAWN compiler for QuickPawn (EM-Creations.info)
+sudo mv Pawn /opt/Pawn
+cd /opt/Pawn/source/compiler
+cmake .
+make
+echo Installed to /opt/Pawn - Do not delete
+echo Cleaning up...
+cd ../../
+rm -rf include/
+rm -rf xml/
+cd source
+rm -rf amx/
+rm -rf linux/
+echo Finished!
