@@ -118,6 +118,15 @@ new Attempts[MAX_PLAYERS];
 new SoloSuenaUnaVez[MAX_PLAYERS];//MUSICA SPAWN
 
 //===============================|Nuevas Cosas|=================================
+new SpawnAuto[MAX_PLAYERS];
+new bomb;
+new ufo1;
+new ufo2;
+new Ovni[MAX_PLAYERS];
+new Light[MAX_PLAYERS];
+new Ovni2[MAX_PLAYERS];
+new Light2[MAX_PLAYERS];
+
 new Float: PosCP_X,
 Float: PosCP_Y,
 Float: PosCP_Z;
@@ -2848,6 +2857,10 @@ public OnGameModeInit()
 	Create3DTextLabel("{FF0000}/GUERRA",0x00B7FFFF,2615.6184,-2511.5593,33.1887,15.0,3);
 	Create3DTextLabel("{FFFFFF}S U L T A N",0x00B7FFFF,-302.6832,1518.8037,75.3594,60.0,0);
 	drift = CreatePickup(19131, 2, -302.6832,1518.8037,75.3594);
+	//================================= Ovni ======================================================
+	SetTimer("MoveUfo",1,1);
+	ufo1 = CreateObject(13607, -1460.199829, -943.961182, 219.348648, 0.0000, 0.0000, 0.0000);
+	ufo2 = CreateObject(13607, -1460.167114, -944.012512, 206.879150, 179.6226, 0.0000, 0.0000);
 	//================================= Rejas ======================================================
 	Reja1 = CreateObject(19912, 1282.77832, -2062.38110, 60.71246,   0.00000, 0.00000, 271.13068);
 	Reja1_is_open = 0;
@@ -6412,6 +6425,10 @@ public OnPlayerConnect(playerid)
 	beenrobbedrecently[playerid] = 0;
     fixedcarrecent[playerid] =0;
 	INFO[playerid][UsaDrogas] = 0;
+    Ovni[playerid] = 0;
+	Light[playerid] = 0;
+	Ovni2[playerid] = 0;
+	Light2[playerid] = 0;
 	LoadPlayer(playerid);
    	return 1;
 }
@@ -7035,6 +7052,14 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 		SetPlayerVirtualWorld(playerid, 0);
 		#endif
     }*/
+	if(Ovni2[playerid] == 1)
+	{
+	    for(new i=0; i<MAX_PLAYER_ATTACHED_OBJECTS; i++)
+	    {
+	        if(IsPlayerAttachedObjectSlotUsed(playerid, i)) RemovePlayerAttachedObject(playerid, i);
+	        Ovni2[playerid] = 0;
+	     }
+	}
     if(Joined[playerid] == true){
     	PutPlayerInVehicle(playerid, CreatedRaceVeh[playerid], 0); //vuelve a poner al jugador en el vehiculo
 	}
@@ -7866,6 +7891,10 @@ public OnPlayerDisconnect(playerid,reason)
 	PI[playerid] = tmp;
  	BloquearComandosInDerby[playerid] = 0;
 	/////////////////////////////////////////////
+	Ovni[playerid] = 0;
+    Light[playerid] = 0;
+    Ovni2[playerid] = 0;
+	Light2[playerid] = 0;
 	if(BuildRace == playerid+1) BuildRace = 0;
     BloquearComandosInRace[playerid] = 0;
     TextDrawHideForPlayer(playerid,vehiclehpbar[playerid]); //Textdraw vida vehiculo
@@ -9161,6 +9190,75 @@ CMD:drogas(playerid,params[])
 	 return 1;
 }
 
+
+
+CMD:ovni(playerid, params[])
+{
+	new PlayerName[MAX_PLAYER_NAME];
+	GetPlayerName(playerid, PlayerName, MAX_PLAYER_NAME);
+	format(fString, sizeof(fString), "|Teleport| »{00BFFF} %s {EAEAEA}se teletransporto a ovni. {00BFFF}(/ovni)", PlayerName);
+	GameTextForPlayer(playerid,"~w~Bienvenido a ~n~~r~Ovni",2500,3);
+	SendClientMessageToAll(red, fString);
+	new Float:X,Float:Y,Float:Z;
+	GetObjectPos(ufo1,X,Y,Z);
+	if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+	{
+		SetVehiclePos(GetPlayerVehicleID(playerid),X,Y,Z);
+		SetPlayerInterior(playerid,0);
+		SetPlayerVirtualWorld(playerid, 0);
+		LinkVehicleToInterior(GetPlayerVehicleID(playerid),0);
+	}
+	else
+	{
+		SetPlayerPos(playerid,X,Y,Z);
+		SetPlayerInterior(playerid,0);
+	}
+	return 1;
+}
+
+
+CMD:ovni1(playerid, params[])
+{
+	if(Ovni[playerid] == 0)
+	{
+		SetPlayerAttachedObject(playerid,0,3515,1,-0.609999,0.000000,-0.003999,0.000000,90.900000,0.000000,0.832001,0.818000,0.553001);
+		SetPlayerAttachedObject(playerid,1,18843,1,-0.712000,0.000000,0.000000,0.000000,0.000000,0.000000,0.014000,0.015000,0.016000);
+		SetPlayerAttachedObject(playerid,2,3515,1,0.133001,-0.011000,0.017000,0.000000,-90.000000,0.000000,0.818000,0.772001,0.359001);
+   		SetPlayerAttachedObject(playerid,3,18843,1,0.074999,-0.017000,0.026999,0.000000,0.000000,0.000000,0.019000,0.020000,0.020000);
+		Ovni[playerid] = 1;
+		SetPlayerSpecialAction(playerid,SPECIAL_ACTION_USEJETPACK);
+	}
+	else if(Ovni[playerid] == 1)
+	{
+	    for(new i=0; i<MAX_PLAYER_ATTACHED_OBJECTS; i++)
+		{
+	        if(IsPlayerAttachedObjectSlotUsed(playerid, i)) RemovePlayerAttachedObject(playerid, i);
+	        Ovni[playerid] = 0;
+	    }
+	}
+	return 1;
+}
+
+CMD:ovni2(playerid,params[])
+{
+	if(Ovni2[playerid] == 0)
+	{
+		SetPlayerAttachedObject(playerid,0,3515,1,1.281999,-1.577000,-0.281000,-0.499999,90.800125,-0.599996,4.183998,4.936002,2.922001);
+		SetPlayerAttachedObject(playerid,1,3515,1,5.023988,-1.466000,-0.072000,0.199999,-89.300010,8.799994,4.148001,4.529000,1.617000);
+		SetPlayerAttachedObject(playerid,2,18843,1,4.163002,-1.490000,0.000000,0.000000,0.000000,0.000000,0.089000,0.117999,0.099000);
+		Ovni2[playerid] = 1;
+		CrearVehiculo(playerid, 520);
+	}
+	else if(Ovni2[playerid] == 1)
+	{
+	    for(new i=0; i<MAX_PLAYER_ATTACHED_OBJECTS; i++)
+	    {
+	        if(IsPlayerAttachedObjectSlotUsed(playerid, i)) RemovePlayerAttachedObject(playerid, i);
+	        Ovni2[playerid] = 0;
+	    }
+	}
+	return 1;
+}
 
 CMD:sexo(playerid, params[])
 {
@@ -17008,6 +17106,73 @@ public destroy(playerid)
 }
 public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 {
+	if(!IsPlayerInAnyVehicle(playerid))
+	{
+		if(Ovni[playerid] == 1)
+		{
+			if (newkeys & KEY_FIRE)
+			{
+				new Float:x,Float:y,Float:z,Float:a;
+				GetPlayerPos(playerid,x,y,z);
+				GetPlayerFacingAngle(playerid,a);
+				bomb = CreateObject(3786, x, y, z-2, 0, 0, a-90);
+				MoveObject(bomb, x, y, z-300, 30.0);
+				SetTimer("HideBomb",1000,0);
+			}
+			else if (newkeys & KEY_YES)
+			{
+				if(Light[playerid] == 0)
+				{
+					SetPlayerAttachedObject(playerid,5,18656,1,0.918999,-0.342001,-0.760999,-12.000008,0.000000,90.000,1.000000,1.000000,1.000000);
+					Light[playerid] = 1;
+    			}
+    			else if(Light[playerid] == 1)
+    			{
+					SetPlayerAttachedObject(playerid,5,18657,1,0.918999,-0.342001,-0.760999,-12.000008,0.000000,90.000,1.000000,1.000000,1.000000);
+					Light[playerid] = 2;
+    			}
+    			else if(Light[playerid] == 2)
+				{
+					SetPlayerAttachedObject(playerid,5,18658,1,0.918999,-0.342001,-0.760999,-12.000008,0.000000,90.000,1.000000,1.000000,1.000000);
+					Light[playerid] = 0;
+				}
+			}
+			else if (newkeys & KEY_NO)
+			{
+				RemovePlayerAttachedObject(playerid, 5);
+				Light[playerid] = 0;
+			}
+		}
+	}
+	else if(IsPlayerInAnyVehicle(playerid))
+	{
+		if(Ovni2[playerid] == 1)
+		{
+ 			if (newkeys & KEY_YES)
+			{
+				if(Light2[playerid] == 0)
+				{
+					SetPlayerAttachedObject(playerid,3,18656,1,5.162999,-0.976000,-4.204011,0.000000,-2.100000,106.999916,4.111006,2.611997,5.209000);
+					Light2[playerid] = 1;
+    			}
+    			else if(Light2[playerid] == 1)
+				{
+					SetPlayerAttachedObject(playerid,3,18657,1,5.162999,-0.976000,-4.204011,0.000000,-2.100000,106.999916,4.111006,2.611997,5.209000);
+					Light2[playerid] = 2;
+				}
+    			else if(Light2[playerid] == 2)
+    			{
+					SetPlayerAttachedObject(playerid,3,18658,1,5.162999,-0.976000,-4.204011,0.000000,-2.100000,106.999916,4.111006,2.611997,5.209000);
+					Light2[playerid] = 0;
+    			}
+			}
+			else if (newkeys & KEY_NO)
+			{
+				RemovePlayerAttachedObject(playerid, 3);
+				Light2[playerid] = 0;
+			}
+		}
+	}
 	if(IsPlayerInAnyVehicle(playerid) && FireShotON[playerid] == 1 && FireShot[playerid] == 0 && newkeys & 4 && !IsValidObject(gRocketObj[playerid]))
 	{
  		SetPlayerTime(playerid,0,0);
@@ -23326,7 +23491,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			if(listitem == 1)ShowPlayerDialog(playerid, Teles+2, DIALOG_STYLE_LIST, "Deathmatchs", "{FF0000}*{FFFFFF} Deathmatch 1\n{FF0000}*{FFFFFF} Deathmatch 2\n{FF0000}*{FFFFFF} Deathmatch 3\n{FF0000}*{FFFFFF} Deathmatch 4\n{FF0000}*{FFFFFF} Mini DM\n{FF0000}*{FFFFFF} Mini DM 2\n{FF0000}*{FFFFFF} Minigun DM\n{FF0000}*{FFFFFF} Sniper DM\n{FF0000}*{FFFFFF} Boxeo DM\n{FF0000}*{FFFFFF} Pro DM\n{FF0000}*{FFFFFF} Guerra DM\n{FF0000}*{FFFFFF} Desmadre", "Seleccionar", "Atras");
 			if(listitem == 2)ShowPlayerDialog(playerid, Teles+3, DIALOG_STYLE_LIST, "Parkours", "{FF0000}*{FFFFFF} Parkour 1\n{FF0000}*{FFFFFF} Parkour 2\n{FF0000}*{FFFFFF} Parkour 3\n{FF0000}*{FFFFFF} Parkour 4\n{FF0000}*{FFFFFF} Parkour 5\n{FF0000}*{FFFFFF} Parkour 6\n{FF0000}*{FFFFFF} Parkour NRG1\n{FF0000}*{FFFFFF} Parkour NRG2\n{FF0000}*{FFFFFF} Parkour Monster1\n{FF0000}*{FFFFFF} Parkour Monster2\n{FF0000}*{FFFFFF} Parkour Monster3", "Seleccionar", "Atras");
 			if(listitem == 3)ShowPlayerDialog(playerid, Teles+4, DIALOG_STYLE_LIST, "Paracaidismos", "{FF0000}*{FFFFFF} Salto Mortal 1\n{FF0000}*{FFFFFF} Salto Mortal 2\n{FF0000}*{FFFFFF} Salto Mortal 3\n{FF0000}*{FFFFFF} Salto Mortal 4\n{FF0000}*{FFFFFF} Super Salto 1\n{FF0000}*{FFFFFF} Super Salto 2\n{FF0000}*{FFFFFF} Super Salto 3\n{FF0000}*{FFFFFF} Super Salto 4\n{FF0000}*{FFFFFF} Super Salto 5", "Seleccionar", "Atras");
-			if(listitem == 4)ShowPlayerDialog(playerid, Teles+5, DIALOG_STYLE_LIST, "Lugares", "{FF0000}*{FFFFFF} Grove Street\n{FF0000}*{FFFFFF} Cementerio\n{FF0000}*{FFFFFF} Playa\n{FF0000}*{FFFFFF} Bike Park\n{FF0000}*{FFFFFF} Mansion de Madd Dogg\n{FF0000}*{FFFFFF} Area 51\n{FF0000}*{FFFFFF} Monte Chiliad\n{FF0000}*{FFFFFF} Club de Jizzy\n{FF0000}*{FFFFFF} Torre\n{FF0000}*{FFFFFF} MotoTrial\n{FF0000}*{FFFFFF} Drift", "Seleccionar", "Atras");
+			if(listitem == 4)ShowPlayerDialog(playerid, Teles+5, DIALOG_STYLE_LIST, "Lugares", "{FF0000}*{FFFFFF} Grove Street\n{FF0000}*{FFFFFF} Cementerio\n{FF0000}*{FFFFFF} Playa\n{FF0000}*{FFFFFF} Bike Park\n{FF0000}*{FFFFFF} Mansion de Madd Dogg\n{FF0000}*{FFFFFF} Area 51\n{FF0000}*{FFFFFF} Monte Chiliad\n{FF0000}*{FFFFFF} Club de Jizzy\n{FF0000}*{FFFFFF} Torre\n{FF0000}*{FFFFFF} MotoTrial\n{FF0000}*{FFFFFF} Drift\n{FF0000}*{FFFFFF} Ovni", "Seleccionar", "Atras");
 			if(listitem == 5)ShowPlayerDialog(playerid, Teles+6, DIALOG_STYLE_LIST, "Rampas", "{FF0000}*{FFFFFF} Rampa Mortal 1\n{FF0000}*{FFFFFF} Rampa Mortal 2\n{FF0000}*{FFFFFF} Rampa Mortal 3\n{FF0000}*{FFFFFF} Super Rampa", "Seleccionar", "Atras");
 			if(listitem == 6)ShowPlayerDialog(playerid, Teles+7, DIALOG_STYLE_LIST, "Garaje Tuning", "{FF0000}*{FFFFFF} Garaje Tuning 1\n{FF0000}*{FFFFFF} Garaje Tuning 2\n{FF0000}*{FFFFFF} Garaje Tuning 3\n{FF0000}*{FFFFFF} Garaje Tuning 4\n{FF0000}*{FFFFFF} Garaje Tuning 5", "Seleccionar", "Atras");
 		}
@@ -23618,6 +23783,11 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			{
 				AntiFlood[playerid] = false;
 				cmd_drift(playerid,"\1");
+			}
+			if(listitem == 11)
+			{
+				AntiFlood[playerid] = false;
+				cmd_ovni(playerid,"\1");
 			}
 		}
 		else ShowPlayerDialog(playerid, Teles, DIALOG_STYLE_LIST,"Teletransportaciones", "{FF0000}*{FFFFFF} Ciudades y Aeropuertos\n{FF0000}*{FFFFFF} Deathmatchs\n{FF0000}*{FFFFFF} Parkours\n{FF0000}*{FFFFFF} Paracaidismos\n{FF0000}*{FFFFFF} Lugares\n{FF0000}*{FFFFFF} Rampas\n{FF0000}*{FFFFFF} Garaje Tuning", "Seleccionar", "Salir");
@@ -24563,6 +24733,8 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			new OtherCmds[1600];
 			strcat(OtherCmds, "{C0C0C0}/VCONTROL      \t{FF0000}PARA TENER EL CONTROL DE TU VEHICULO.\n");
 			strcat(OtherCmds, "{C0C0C0}/DROGAS        \t{FF0000}PARA CONSUMIR DROGAS.");
+			strcat(OtherCmds, "{C0C0C0}/OVNI1         \t{FF0000}PARA VESTIRSE DE OVNI");
+			strcat(OtherCmds, "{C0C0C0}/OVNI2         \t{FF0000}PARA CONDUCIR UN OVNI");
 			ShowPlayerDialog(playerid, 0, DIALOG_STYLE_MSGBOX, "{FF0000}OTROS COMANDOS {FFFFFF}[3/3]",OtherCmds,"Salir","");
 		}
 	}
@@ -28265,4 +28437,145 @@ public ComenzarEfectoDeDroga(playerid)
 {
     INFO[playerid][UsaDrogas] = 1;
     return 1;
+}
+
+forward MoveUfo();
+public MoveUfo()
+{
+	new Float:X,Float:Y,Float:Z;
+	GetObjectPos(ufo1,X,Y,Z);
+	if(X == -1460.199829 && Y == -943.961182 && Z == 219.348648)//1
+	{
+		MoveObject(ufo1,-1506.5603,-236.6437,41.9595,10);
+		MoveObject(ufo2,-1506.5603,-236.6437,28.9595,10);
+	}
+	else if(X == -1506.5603 && Y == -236.6437 && Z == 41.9595)//2
+	{
+		MoveObject(ufo1,-2044.7471,-159.6864,57.0575,10);
+		MoveObject(ufo2,-2044.7471,-159.6864,44.0575,10);
+	}
+	else if(X == -2044.7471 && Y == -159.6864 && Z == 57.0575)//3
+	{
+		MoveObject(ufo1,-2341.4648,101.5890,87.7887,10);
+		MoveObject(ufo2,-2341.4648,101.5890,74.0575,10);
+	}
+	else if(X == -2341.4648 && Y == 101.5890 && Z == 87.7887)//4
+	{
+		MoveObject(ufo1,-2256.6025,667.1548,87.3680,10);
+		MoveObject(ufo2,-2256.6025,667.1548,74.3680,10);
+	}
+	else if(X == -2256.6025 && Y == 667.1548 && Z == 87.3680)//5
+	{
+		MoveObject(ufo1,-2260.5229,1228.8458,101.8017,10);
+		MoveObject(ufo2,-2260.5229,1228.8458,88.8017,10);
+	}
+	else if(X == -2260.5229 && Y == 1228.8458 && Z == 101.8017)//6
+	{
+		MoveObject(ufo1,-2435.4058,2393.3794,61.7521,10);
+		MoveObject(ufo2,-2435.4058,2393.3794,48.7521,10);
+	}
+	else if(X == -2435.4058 && Y == 2393.3794 && Z == 61.7521)//7
+	{
+		MoveObject(ufo1,-1484.6387,2604.9680,99.6378,10);
+		MoveObject(ufo2,-1484.6387,2604.9680,86.6378,10);
+	}
+	else if(X == -1484.6387 && Y == 2604.9680 && Z == 99.6378)//8
+	{
+		MoveObject(ufo1,-279.8146,2676.7722,99.6378,10);
+		MoveObject(ufo2,-279.8146,2676.7722,86.6378,10);
+	}
+	else if(X == -279.8146 && Y == 2676.7722 && Z == 99.6378)//9
+	{
+		MoveObject(ufo1,252.2976,2499.8521,23.1104,10);
+		MoveObject(ufo2,252.2976,2499.8521,10.1104,10);
+	}
+	else if(X == 252.2976 && Y == 2499.8521 && Z == 23.1104)//10
+	{
+		MoveObject(ufo1,1331.4113,2147.8853,48.7490,10);
+		MoveObject(ufo2,1331.4113,2147.8853,48.7490,10);
+	}
+	else if(X == 1331.4113 && Y == 2147.8853 && Z == 48.7490)//11
+	{
+		MoveObject(ufo1,2068.9707,2025.3483,48.7490,10);
+		MoveObject(ufo2,2068.9707,2025.3483,35.7490,10);
+	}
+	else if(X == 2068.9707 && Y == 2025.3483 && Z == 48.7490)//12
+	{
+		MoveObject(ufo1,2313.0459,1476.3765,67.6918,10);
+		MoveObject(ufo2,2313.0459,1476.3765,54.6918,10);
+	}
+	else if(X == 2313.0459 && Y == 1476.3765 && Z == 67.6918)//13
+	{
+		MoveObject(ufo1,2060.1272,889.8865,67.6918,10);
+		MoveObject(ufo2,2060.1272,889.8865,54.6918,10);
+	}
+	else if(X == 2060.1272 && Y == 889.8865 && Z == 67.6918)//14
+	{
+		MoveObject(ufo1,2287.6528,58.8603,67.6918,10);
+		MoveObject(ufo2,2287.6528,58.8603,54.6918,10);
+	}
+	else if(X == 2287.6528 && Y == 58.8603 && Z == 67.6918)//15
+	{
+		MoveObject(ufo1,2973.0452,-635.7138,55.1626,10);
+		MoveObject(ufo2,2973.0452,-635.7138,42.1626,10);
+	}
+	else if(X == 2973.0452 && Y == -635.7138 && Z == 55.1626)//16
+	{
+		MoveObject(ufo1,2839.8010,-1622.6360,54.2983,10);
+		MoveObject(ufo2,2839.8010,-1622.6360,41.2983,10);
+	}
+	else if(X == 2839.8010 && Y == -1622.6360 && Z == 54.2983)//17
+	{
+		MoveObject(ufo1,1901.5543,-1403.1490,71.2907,10);
+		MoveObject(ufo2,1901.5543,-1403.1490,58.2907,10);
+	}
+	else if(X == 1901.5543 && Y == -1403.1490 && Z == 71.2907)//18
+	{
+		MoveObject(ufo1,1559.9883,-1610.8218,71.2907,10);
+		MoveObject(ufo2,1559.9883,-1610.8218,58.2907,10);
+	}
+	else if(X == 1559.9883 && Y == -1610.8218 && Z == 71.2907)//19
+	{
+		MoveObject(ufo1,885.0158,-1095.3879,71.2907,10);
+		MoveObject(ufo2,885.0158,-1095.3879,58.2907,10);
+	}
+	else if(X == 885.0158 && Y == -1095.3879 && Z == 71.2907)//20
+	{
+		MoveObject(ufo1,161.9016,-1533.5796,71.2907,10);
+		MoveObject(ufo2,161.9016,-1533.5796,58.2907,10);
+	}
+	else if(X == 161.9016 && Y == -1533.5796 && Z == 71.2907)//21
+	{
+		MoveObject(ufo1,-2299.3914,-1655.8417,495.0936,10);
+		MoveObject(ufo2,-2299.3914,-1655.8417,482.0936,10);
+	}
+	else if(X == -2299.3914 && Y == -1655.8417 && Z == 495.0936)//22
+	{
+		MoveObject(ufo1,-1460.199829,-943.961182, 219.348648,10);
+		MoveObject(ufo2,-1460.167114, -944.012512, 206.879150,10);
+	}
+	return 1;
+}
+
+
+CrearVehiculo(playerid, modelid)
+{
+        new Auto, Float:x,Float:y,Float:z,Float:angulo;
+		if(GetPlayerState(playerid) == PLAYER_STATE_DRIVER)
+		{
+		Auto = GetPlayerVehicleID(playerid);
+	    GetVehiclePos(Auto, x, y, z);
+	    GetVehicleZAngle(Auto, angulo);
+	    }
+	    else
+	    {
+	    GetPlayerPos(playerid, x, y, z);
+		GetPlayerFacingAngle(playerid, angulo);
+	    }
+        if(SpawnAuto[playerid] != 0)DestroyVehicle(SpawnAuto[playerid]);
+        SpawnAuto[playerid] = CreateVehicle(modelid,x,y,z,angulo,-1,-1,60);
+        PutPlayerInVehicle(playerid,SpawnAuto[playerid],0);
+		LinkVehicleToInterior(Auto, GetPlayerInterior(playerid));
+		SetVehicleVirtualWorld(Auto, GetPlayerVirtualWorld(playerid));
+        return 1;
 }

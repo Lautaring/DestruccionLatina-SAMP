@@ -74360,3 +74360,959 @@ ________________________________________
 [21:29:42] [debug] #2 001962bc in public LoadAutoRace (rName[]=@0001bfe8 "05") at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:27061
 [21:29:42] [debug] #3 0019a308 in public StopRace () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:27331
 [21:29:42] [debug] #4 0019a390 in public RaceCounter () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:27345
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:42:33] 
+[22:42:33] Server Plugins
+[22:42:33] --------------
+[22:42:33]  Loading plugin: crashdetect.dll
+[22:42:33]   CrashDetect plugin 4.20
+[22:42:33]   Loaded.
+[22:42:33]  Loading plugin: streamer.dll
+[22:42:33] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[22:42:33]   Loaded.
+[22:42:33]  Loading plugin: sscanf.dll
+[22:42:33] 
+
+[22:42:33]  ===============================
+
+[22:42:33]       sscanf plugin loaded.     
+
+[22:42:33]          Version:  2.8.3        
+
+[22:42:33]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:42:33]  ===============================
+
+[22:42:33]   Loaded.
+[22:42:33]  Loading plugin: YSF.dll
+[22:42:33] 
+
+[22:42:33]  ===============================
+
+[22:42:33]         YSF 0.3.00 loaded
+
+[22:42:33]    (c) 2008 Alex "Y_Less" Cole
+
+[22:42:33]     Operating System: Windows
+
+[22:42:33]  ===============================
+
+[22:42:33]   Loaded.
+[22:42:33]  Loaded 4 plugins.
+
+[22:42:33] 
+[22:42:33] Filterscripts
+[22:42:33] ---------------
+[22:42:33]   Loading filterscript 'Objetos.amx'...
+[22:42:33] [debug] Long callback execution detected (hang or performance issue)
+[22:42:33] [debug] AMX backtrace:
+[22:42:33] [debug] #0 0009ff98 in public OnFilterScriptInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\filterscripts\Objetos.pwn:3761
+[22:42:33] 11827 Objetos creados y cargados
+[22:42:33]   Loading filterscript 'getwet.amx'...
+[22:42:33]  
+[22:42:33]  
+[22:42:33]  
+[22:42:33]  ======================================= 
+[22:42:33]  |                                     | 
+[22:42:33]  |        YSI version 4.00.0001        | 
+[22:42:33]  |        By Alex "Y_Less" Cole        | 
+[22:42:33]  |                                     | 
+[22:42:33]  ======================================= 
+[22:42:33]  
+[22:42:33] [debug] Long callback execution detected (hang or performance issue)
+[22:42:33] [debug] AMX backtrace:
+[22:42:33] [debug] #0 0000390c in ?? () in getwet.amx
+[22:42:33] [debug] #1 000039c0 in ?? (39) in getwet.amx
+[22:42:33] [debug] #2 0000512c in ?? (88816) in getwet.amx
+[22:42:33] [debug] #3 00009e08 in ?? (-206120) in getwet.amx
+[22:42:33] [debug] #4 0002e160 in public AMX_OnScriptInit () in getwet.amx
+[22:42:33] [debug] #5 00008e2c in public Debug_OnScriptInit () in getwet.amx
+[22:42:33] [debug] #6 00001308 in public YVers_OnScriptInit () in getwet.amx
+[22:42:33] [debug] #7 00000e1c in public ScriptInit_OnScriptInit () in getwet.amx
+[22:42:33] [debug] #8 00000a78 in public zcmd_OnFilterScriptInit () in getwet.amx
+[22:42:33] [debug] #9 native CallLocalFunction () in samp-server.exe
+[22:42:33] [debug] #10 000002c8 in public OnFilterScriptInit () in getwet.amx
+[22:42:33]   Loaded 2 filterscripts.
+
+[22:42:33] [debug] Long callback execution detected (hang or performance issue)
+[22:42:33] [debug] AMX backtrace:
+[22:42:33] [debug] #0 000183a8 in mS_strtok (string[]=@006c3b08 "69", &index=@006c3b04 4) at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:714
+[22:42:33] [debug] #1 00017684 in LoadModelSelectionMenu (f_name[]=@003d7d24 "skins.txt") at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:638
+[22:42:33] [debug] #2 0001f070 in public Itter_OnGameModeInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:2860
+[22:42:33] [debug] #3 native CallLocalFunction () in samp-server.exe
+[22:42:33] [debug] #4 00018768 in public SSCANF_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\foreach.inc:689
+[22:42:33] [debug] #5 0000913c in public FC_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\sscanf2.inc:211
+[22:42:33] [debug] #6 native CallLocalFunction () in samp-server.exe
+[22:42:33] [debug] #7 00008ca0 in public zcmd_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\CleoFuck.inc:244
+[22:42:33] [debug] #8 native CallLocalFunction () in samp-server.exe
+[22:42:33] [debug] #9 00005a88 in public OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\zcmd.inc:68
+[22:42:33] --- LISTA 'DERBY/lista_derby.txt' OK. Se importaron 10 mapas derby.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Island.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Pirata.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Sphix.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Bers.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/KilS.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Extreme.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Remolque.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Tokyo.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Vinewood.txt' comprobado correctamente.
+[22:42:33] --- COMPROBACION: Mapa 'DERBY/Adrenaline.txt' comprobado correctamente.
+[22:42:33] --- Se han verificado 10 de los 10 mapas importados.
+[22:42:33] 
+
+----------------------------------------------
+[22:42:33]   Sistema Derby 1.10 a 06/11/2018 por adri1. Editado por Psicoloco.
+[22:42:33] ----------------------------------------------
+
+
+[22:42:33] 
+Loading Gamemode(MXTDM~FR [0.3.7])
+[22:42:33] 
+________________________________________
+[22:42:33] ________________________________________
+[22:42:33]            LAdmin Loading...            
+[22:42:33] ________________________________________
+[22:42:33] 
+ -Configuration Settings Loaded
+[22:42:33]  -41 Forbidden Names Loaded
+[22:42:33]  -10 Forbidden Tags Loaded
+[22:42:33]  -92 Forbidden Words Loaded
+[22:42:33] ________________________________________
+[22:42:33]            LAdmin Version 4.0           
+[22:42:33]                 Loaded                  
+[22:42:33] ________________________________________
+[22:42:33]      Date: 23/5/2021  Time: 22:42 :33   
+[22:42:33] ________________________________________
+[22:42:33] ________________________________________
+
+[22:42:33] >--------------------------------------------------------------------------
+[22:42:33] 184 Businesses Successfully loaded and created
+[22:42:33] 1932 Vehicles Successfully loaded and created
+[22:42:33] >--------------------------------------------------------------------------
+[22:42:33] 
+[22:42:33] >--------------------------------------------------------------------------
+[22:42:33] Business and Vehicle Systems Status - 100% - Systems Ready...
+[22:42:33] >--------------------------------------------------------------------------
+[22:42:45]  
+[22:42:45] >----------------------------------<
+[22:42:45] | SATDM ~ Role-Play V9 by MoNeYPiMp|
+[22:42:45] >----------------------------------<
+
+[22:42:45] Number of vehicle models: 180
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:44:37] 
+[22:44:37] Server Plugins
+[22:44:37] --------------
+[22:44:37]  Loading plugin: crashdetect.dll
+[22:44:37]   CrashDetect plugin 4.20
+[22:44:37]   Loaded.
+[22:44:37]  Loading plugin: streamer.dll
+[22:44:37] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[22:44:37]   Loaded.
+[22:44:37]  Loading plugin: sscanf.dll
+[22:44:37] 
+
+[22:44:37]  ===============================
+
+[22:44:37]       sscanf plugin loaded.     
+
+[22:44:37]          Version:  2.8.3        
+
+[22:44:37]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:44:37]  ===============================
+
+[22:44:37]   Loaded.
+[22:44:37]  Loading plugin: YSF.dll
+[22:44:37] 
+
+[22:44:37]  ===============================
+
+[22:44:37]         YSF 0.3.00 loaded
+
+[22:44:37]    (c) 2008 Alex "Y_Less" Cole
+
+[22:44:37]     Operating System: Windows
+
+[22:44:37]  ===============================
+
+[22:44:37]   Loaded.
+[22:44:37]  Loaded 4 plugins.
+
+[22:44:37] 
+[22:44:37] Filterscripts
+[22:44:37] ---------------
+[22:44:37]   Loading filterscript 'Objetos.amx'...
+[22:44:37] [debug] Long callback execution detected (hang or performance issue)
+[22:44:37] [debug] AMX backtrace:
+[22:44:37] [debug] #0 000ad7cc in public OnFilterScriptInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\filterscripts\Objetos.pwn:4079
+[22:44:37] 11827 Objetos creados y cargados
+[22:44:37]   Loading filterscript 'getwet.amx'...
+[22:44:37]  
+[22:44:37]  
+[22:44:37]  
+[22:44:37]  ======================================= 
+[22:44:37]  |                                     | 
+[22:44:37]  |        YSI version 4.00.0001        | 
+[22:44:37]  |        By Alex "Y_Less" Cole        | 
+[22:44:37]  |                                     | 
+[22:44:37]  ======================================= 
+[22:44:37]  
+[22:44:37] [debug] Long callback execution detected (hang or performance issue)
+[22:44:37] [debug] AMX backtrace:
+[22:44:37] [debug] #0 0002d4e0 in ?? (-205920, -205912) in getwet.amx
+[22:44:37] [debug] #1 0002d894 in ?? () in getwet.amx
+[22:44:37] [debug] #2 0002c4f4 in ?? () in getwet.amx
+[22:44:37] [debug] #3 0002e1c0 in public AMX_OnScriptInit () in getwet.amx
+[22:44:37] [debug] #4 00008e2c in public Debug_OnScriptInit () in getwet.amx
+[22:44:37] [debug] #5 00001308 in public YVers_OnScriptInit () in getwet.amx
+[22:44:37] [debug] #6 00000e1c in public ScriptInit_OnScriptInit () in getwet.amx
+[22:44:37] [debug] #7 00000a78 in public zcmd_OnFilterScriptInit () in getwet.amx
+[22:44:37] [debug] #8 native CallLocalFunction () in samp-server.exe
+[22:44:37] [debug] #9 000002c8 in public OnFilterScriptInit () in getwet.amx
+[22:44:37]   Loaded 2 filterscripts.
+
+[22:44:37] [debug] Long callback execution detected (hang or performance issue)
+[22:44:37] [debug] AMX backtrace:
+[22:44:37] [debug] #0 00018260 in mS_strtok (string[]=@006c3b08 "217", &index=@006c3b04 1) at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:708
+[22:44:37] [debug] #1 0001743c in LoadModelSelectionMenu (f_name[]=@003d7d24 "skins.txt") at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:624
+[22:44:37] [debug] #2 0001f070 in public Itter_OnGameModeInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:2860
+[22:44:37] [debug] #3 native CallLocalFunction () in samp-server.exe
+[22:44:37] [debug] #4 00018768 in public SSCANF_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\foreach.inc:689
+[22:44:37] [debug] #5 0000913c in public FC_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\sscanf2.inc:211
+[22:44:37] [debug] #6 native CallLocalFunction () in samp-server.exe
+[22:44:37] [debug] #7 00008ca0 in public zcmd_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\CleoFuck.inc:244
+[22:44:37] [debug] #8 native CallLocalFunction () in samp-server.exe
+[22:44:37] [debug] #9 00005a88 in public OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\zcmd.inc:68
+[22:44:37] --- LISTA 'DERBY/lista_derby.txt' OK. Se importaron 10 mapas derby.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Island.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Pirata.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Sphix.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Bers.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/KilS.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Extreme.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Remolque.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Tokyo.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Vinewood.txt' comprobado correctamente.
+[22:44:37] --- COMPROBACION: Mapa 'DERBY/Adrenaline.txt' comprobado correctamente.
+[22:44:37] --- Se han verificado 10 de los 10 mapas importados.
+[22:44:37] 
+
+----------------------------------------------
+[22:44:37]   Sistema Derby 1.10 a 06/11/2018 por adri1. Editado por Psicoloco.
+[22:44:37] ----------------------------------------------
+
+
+[22:44:37] 
+Loading Gamemode(MXTDM~FR [0.3.7])
+[22:44:37] 
+________________________________________
+[22:44:37] ________________________________________
+[22:44:37]            LAdmin Loading...            
+[22:44:37] ________________________________________
+[22:44:37] 
+ -Configuration Settings Loaded
+[22:44:37]  -41 Forbidden Names Loaded
+[22:44:37]  -10 Forbidden Tags Loaded
+[22:44:37]  -92 Forbidden Words Loaded
+[22:44:37] ________________________________________
+[22:44:37]            LAdmin Version 4.0           
+[22:44:37]                 Loaded                  
+[22:44:37] ________________________________________
+[22:44:37]      Date: 23/5/2021  Time: 22:44 :37   
+[22:44:37] ________________________________________
+[22:44:37] ________________________________________
+
+[22:44:37] >--------------------------------------------------------------------------
+[22:44:37] 184 Businesses Successfully loaded and created
+[22:44:37] 1932 Vehicles Successfully loaded and created
+[22:44:37] >--------------------------------------------------------------------------
+[22:44:37] 
+[22:44:37] >--------------------------------------------------------------------------
+[22:44:37] Business and Vehicle Systems Status - 100% - Systems Ready...
+[22:44:37] >--------------------------------------------------------------------------
+[22:44:38]  
+[22:44:38] >----------------------------------<
+[22:44:38] | SATDM ~ Role-Play V9 by MoNeYPiMp|
+[22:44:38] >----------------------------------<
+
+[22:44:38] Number of vehicle models: 180
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:44:59] 
+[22:44:59] Server Plugins
+[22:44:59] --------------
+[22:44:59]  Loading plugin: crashdetect.dll
+[22:44:59]   CrashDetect plugin 4.20
+[22:44:59]   Loaded.
+[22:44:59]  Loading plugin: streamer.dll
+[22:44:59] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[22:44:59]   Loaded.
+[22:44:59]  Loading plugin: sscanf.dll
+[22:44:59] 
+
+[22:44:59]  ===============================
+
+[22:44:59]       sscanf plugin loaded.     
+
+[22:44:59]          Version:  2.8.3        
+
+[22:44:59]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:44:59]  ===============================
+
+[22:44:59]   Loaded.
+[22:44:59]  Loading plugin: YSF.dll
+[22:44:59] 
+
+[22:44:59]  ===============================
+
+[22:44:59]         YSF 0.3.00 loaded
+
+[22:44:59]    (c) 2008 Alex "Y_Less" Cole
+
+[22:44:59]     Operating System: Windows
+
+[22:44:59]  ===============================
+
+[22:44:59]   Loaded.
+[22:44:59]  Loaded 4 plugins.
+
+[22:44:59] 
+[22:44:59] Filterscripts
+[22:44:59] ---------------
+[22:44:59]   Loading filterscript 'Objetos.amx'...
+[22:44:59] [debug] Long callback execution detected (hang or performance issue)
+[22:44:59] [debug] AMX backtrace:
+[22:44:59] [debug] #0 0009ff98 in public OnFilterScriptInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\filterscripts\Objetos.pwn:3761
+[22:44:59] 11827 Objetos creados y cargados
+[22:44:59]   Loading filterscript 'getwet.amx'...
+[22:44:59]  
+[22:44:59]  
+[22:44:59]  
+[22:44:59]  ======================================= 
+[22:44:59]  |                                     | 
+[22:44:59]  |        YSI version 4.00.0001        | 
+[22:44:59]  |        By Alex "Y_Less" Cole        | 
+[22:44:59]  |                                     | 
+[22:44:59]  ======================================= 
+[22:44:59]  
+[22:44:59] [debug] Long callback execution detected (hang or performance issue)
+[22:44:59] [debug] AMX backtrace:
+[22:44:59] [debug] #0 000092cc in ?? (0, 20, 88136, 87844, 1) in getwet.amx
+[22:44:59] [debug] #1 0002b8bc in ?? (88332, 2, 22564, 88136, 88152) in getwet.amx
+[22:44:59] [debug] #2 0002c66c in ?? (88332, 2, 88204, 15) in getwet.amx
+[22:44:59] [debug] #3 0002c4d8 in ?? () in getwet.amx
+[22:44:59] [debug] #4 0002e1c0 in public AMX_OnScriptInit () in getwet.amx
+[22:44:59] [debug] #5 00008e2c in public Debug_OnScriptInit () in getwet.amx
+[22:44:59] [debug] #6 00001308 in public YVers_OnScriptInit () in getwet.amx
+[22:44:59] [debug] #7 00000e1c in public ScriptInit_OnScriptInit () in getwet.amx
+[22:44:59] [debug] #8 00000a78 in public zcmd_OnFilterScriptInit () in getwet.amx
+[22:44:59] [debug] #9 native CallLocalFunction () in samp-server.exe
+[22:44:59] [debug] #10 000002c8 in public OnFilterScriptInit () in getwet.amx
+[22:44:59]   Loaded 2 filterscripts.
+
+[22:44:59] [debug] Long callback execution detected (hang or performance issue)
+[22:44:59] [debug] AMX backtrace:
+[22:44:59] [debug] #0 00018124 in mS_strtok (string[]=@006c3b08 "154", &index=@006c3b04 4) at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:701
+[22:44:59] [debug] #1 000175c0 in LoadModelSelectionMenu (f_name[]=@003d7d24 "skins.txt") at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:633
+[22:44:59] [debug] #2 0001f070 in public Itter_OnGameModeInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:2860
+[22:44:59] [debug] #3 native CallLocalFunction () in samp-server.exe
+[22:44:59] [debug] #4 00018768 in public SSCANF_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\foreach.inc:689
+[22:44:59] [debug] #5 0000913c in public FC_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\sscanf2.inc:211
+[22:44:59] [debug] #6 native CallLocalFunction () in samp-server.exe
+[22:44:59] [debug] #7 00008ca0 in public zcmd_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\CleoFuck.inc:244
+[22:44:59] [debug] #8 native CallLocalFunction () in samp-server.exe
+[22:44:59] [debug] #9 00005a88 in public OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\zcmd.inc:68
+[22:44:59] --- LISTA 'DERBY/lista_derby.txt' OK. Se importaron 10 mapas derby.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Island.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Pirata.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Sphix.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Bers.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/KilS.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Extreme.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Remolque.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Tokyo.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Vinewood.txt' comprobado correctamente.
+[22:44:59] --- COMPROBACION: Mapa 'DERBY/Adrenaline.txt' comprobado correctamente.
+[22:44:59] --- Se han verificado 10 de los 10 mapas importados.
+[22:44:59] 
+
+----------------------------------------------
+[22:44:59]   Sistema Derby 1.10 a 06/11/2018 por adri1. Editado por Psicoloco.
+[22:44:59] ----------------------------------------------
+
+
+[22:44:59] 
+Loading Gamemode(MXTDM~FR [0.3.7])
+[22:44:59] 
+________________________________________
+[22:44:59] ________________________________________
+[22:44:59]            LAdmin Loading...            
+[22:44:59] ________________________________________
+[22:44:59] 
+ -Configuration Settings Loaded
+[22:44:59]  -41 Forbidden Names Loaded
+[22:44:59]  -10 Forbidden Tags Loaded
+[22:44:59]  -92 Forbidden Words Loaded
+[22:44:59] ________________________________________
+[22:44:59]            LAdmin Version 4.0           
+[22:44:59]                 Loaded                  
+[22:44:59] ________________________________________
+[22:44:59]      Date: 23/5/2021  Time: 22:44 :59   
+[22:44:59] ________________________________________
+[22:44:59] ________________________________________
+
+[22:44:59] >--------------------------------------------------------------------------
+[22:44:59] 184 Businesses Successfully loaded and created
+[22:45:00] 1932 Vehicles Successfully loaded and created
+[22:45:00] >--------------------------------------------------------------------------
+[22:45:00] 
+[22:45:00] >--------------------------------------------------------------------------
+[22:45:00] Business and Vehicle Systems Status - 100% - Systems Ready...
+[22:45:00] >--------------------------------------------------------------------------
+[22:45:01]  
+[22:45:01] >----------------------------------<
+[22:45:01] | SATDM ~ Role-Play V9 by MoNeYPiMp|
+[22:45:01] >----------------------------------<
+
+[22:45:01] Number of vehicle models: 180
+[22:45:03] BAD RCON ATTEMPT BY: 127.0.0.1
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:45:22] 
+[22:45:22] Server Plugins
+[22:45:22] --------------
+[22:45:22]  Loading plugin: crashdetect.dll
+[22:45:22]   CrashDetect plugin 4.20
+[22:45:22]   Loaded.
+[22:45:22]  Loading plugin: streamer.dll
+[22:45:22] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[22:45:22]   Loaded.
+[22:45:22]  Loading plugin: sscanf.dll
+[22:45:22] 
+
+[22:45:22]  ===============================
+
+[22:45:22]       sscanf plugin loaded.     
+
+[22:45:22]          Version:  2.8.3        
+
+[22:45:22]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:45:22]  ===============================
+
+[22:45:22]   Loaded.
+[22:45:22]  Loading plugin: YSF.dll
+[22:45:22] 
+
+[22:45:22]  ===============================
+
+[22:45:22]         YSF 0.3.00 loaded
+
+[22:45:22]    (c) 2008 Alex "Y_Less" Cole
+
+[22:45:22]     Operating System: Windows
+
+[22:45:22]  ===============================
+
+[22:45:22]   Loaded.
+[22:45:22]  Loaded 4 plugins.
+
+[22:45:22] 
+[22:45:22] Filterscripts
+[22:45:22] ---------------
+[22:45:22]   Loading filterscript 'Objetos.amx'...
+[22:45:23] [debug] Long callback execution detected (hang or performance issue)
+[22:45:23] [debug] AMX backtrace:
+[22:45:23] [debug] #0 000a6b08 in public OnFilterScriptInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\filterscripts\Objetos.pwn:3917
+[22:45:23] 11827 Objetos creados y cargados
+[22:45:23]   Loading filterscript 'getwet.amx'...
+[22:45:23]  
+[22:45:23]  
+[22:45:23]  
+[22:45:23]  ======================================= 
+[22:45:23]  |                                     | 
+[22:45:23]  |        YSI version 4.00.0001        | 
+[22:45:23]  |        By Alex "Y_Less" Cole        | 
+[22:45:23]  |                                     | 
+[22:45:23]  ======================================= 
+[22:45:23]  
+[22:45:23] [debug] Long callback execution detected (hang or performance issue)
+[22:45:23] [debug] AMX backtrace:
+[22:45:23] [debug] #0 000092cc in ?? (0, 20, 88136, 87844, 1) in getwet.amx
+[22:45:23] [debug] #1 0002b8bc in ?? (88332, 2, 22564, 88136, 88152) in getwet.amx
+[22:45:23] [debug] #2 0002c66c in ?? (88332, 2, 88204, 15) in getwet.amx
+[22:45:23] [debug] #3 0002c4d8 in ?? () in getwet.amx
+[22:45:23] [debug] #4 0002e1c0 in public AMX_OnScriptInit () in getwet.amx
+[22:45:23] [debug] #5 00008e2c in public Debug_OnScriptInit () in getwet.amx
+[22:45:23] [debug] #6 00001308 in public YVers_OnScriptInit () in getwet.amx
+[22:45:23] [debug] #7 00000e1c in public ScriptInit_OnScriptInit () in getwet.amx
+[22:45:23] [debug] #8 00000a78 in public zcmd_OnFilterScriptInit () in getwet.amx
+[22:45:23] [debug] #9 native CallLocalFunction () in samp-server.exe
+[22:45:23] [debug] #10 000002c8 in public OnFilterScriptInit () in getwet.amx
+[22:45:23]   Loaded 2 filterscripts.
+
+[22:45:23] [debug] Long callback execution detected (hang or performance issue)
+[22:45:23] [debug] AMX backtrace:
+[22:45:23] [debug] #0 00018088 in LoadModelSelectionMenu (f_name[]=@003d7cfc "armas.txt") at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:693
+[22:45:23] [debug] #1 0001f048 in public Itter_OnGameModeInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:2859
+[22:45:23] [debug] #2 native CallLocalFunction () in samp-server.exe
+[22:45:23] [debug] #3 00018768 in public SSCANF_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\foreach.inc:689
+[22:45:23] [debug] #4 0000913c in public FC_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\sscanf2.inc:211
+[22:45:23] [debug] #5 native CallLocalFunction () in samp-server.exe
+[22:45:23] [debug] #6 00008ca0 in public zcmd_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\CleoFuck.inc:244
+[22:45:23] [debug] #7 native CallLocalFunction () in samp-server.exe
+[22:45:23] [debug] #8 00005a88 in public OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\zcmd.inc:68
+[22:45:23] --- LISTA 'DERBY/lista_derby.txt' OK. Se importaron 10 mapas derby.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Island.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Pirata.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Sphix.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Bers.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/KilS.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Extreme.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Remolque.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Tokyo.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Vinewood.txt' comprobado correctamente.
+[22:45:23] --- COMPROBACION: Mapa 'DERBY/Adrenaline.txt' comprobado correctamente.
+[22:45:23] --- Se han verificado 10 de los 10 mapas importados.
+[22:45:23] 
+
+----------------------------------------------
+[22:45:23]   Sistema Derby 1.10 a 06/11/2018 por adri1. Editado por Psicoloco.
+[22:45:23] ----------------------------------------------
+
+
+[22:45:23] 
+Loading Gamemode(MXTDM~FR [0.3.7])
+[22:45:23] 
+________________________________________
+[22:45:23] ________________________________________
+[22:45:23]            LAdmin Loading...            
+[22:45:23] ________________________________________
+[22:45:23] 
+ -Configuration Settings Loaded
+[22:45:23]  -41 Forbidden Names Loaded
+[22:45:23]  -10 Forbidden Tags Loaded
+[22:45:23]  -92 Forbidden Words Loaded
+[22:45:23] ________________________________________
+[22:45:23]            LAdmin Version 4.0           
+[22:45:23]                 Loaded                  
+[22:45:23] ________________________________________
+[22:45:23]      Date: 23/5/2021  Time: 22:45 :23   
+[22:45:23] ________________________________________
+[22:45:23] ________________________________________
+
+[22:45:23] >--------------------------------------------------------------------------
+[22:45:23] 184 Businesses Successfully loaded and created
+[22:45:23] 1932 Vehicles Successfully loaded and created
+[22:45:23] >--------------------------------------------------------------------------
+[22:45:23] 
+[22:45:23] >--------------------------------------------------------------------------
+[22:45:23] Business and Vehicle Systems Status - 100% - Systems Ready...
+[22:45:23] >--------------------------------------------------------------------------
+[22:45:24]  
+[22:45:24] >----------------------------------<
+[22:45:24] | SATDM ~ Role-Play V9 by MoNeYPiMp|
+[22:45:24] >----------------------------------<
+
+[22:45:24] Number of vehicle models: 180
+[22:45:27] 
+________________________________________
+[22:45:27] ________________________________________
+[22:45:27]            LAdmin Unloaded              
+[22:45:27] ________________________________________
+[22:45:27]      Date: 23/5/2021  Time: 22:45 :27   
+[22:45:27] ________________________________________
+[22:45:27] ________________________________________
+
+[22:45:27] 
++--------------------------+
+[22:45:27] | Yagu's Race script v0.4a |
+[22:45:27] +---------UNLOADED---------+
+
+[22:45:27] [debug] Long callback execution detected (hang or performance issue)
+[22:45:27] [debug] AMX backtrace:
+[22:45:27] [debug] #0 0013d700 in SaveBusinesses () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:19939
+[22:45:27] [debug] #1 00115028 in public BackupInfo () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:17382
+[22:45:27] [debug] #2 00114ff4 in public OnGameModeExit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:17376
+[22:45:39] [debug] Long callback execution detected (hang or performance issue)
+[22:45:39] [debug] AMX backtrace:
+[22:45:39] [debug] #0 000181d8 in mS_strtok (string[]=@006c3b08 "61", &index=@006c3b04 4) at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:708
+[22:45:39] [debug] #1 00017824 in LoadModelSelectionMenu (f_name[]=@003d7d24 "skins.txt") at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:648
+[22:45:39] [debug] #2 0001f070 in public Itter_OnGameModeInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:2860
+[22:45:39] [debug] #3 native CallLocalFunction () in samp-server.exe
+[22:45:39] [debug] #4 00018768 in public SSCANF_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\foreach.inc:689
+[22:45:39] [debug] #5 0000913c in public FC_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\sscanf2.inc:211
+[22:45:39] [debug] #6 native CallLocalFunction () in samp-server.exe
+[22:45:39] [debug] #7 00008ca0 in public zcmd_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\CleoFuck.inc:244
+[22:45:39] [debug] #8 native CallLocalFunction () in samp-server.exe
+[22:45:39] [debug] #9 00005a88 in public OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\zcmd.inc:68
+[22:45:39] --- LISTA 'DERBY/lista_derby.txt' OK. Se importaron 10 mapas derby.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Island.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Pirata.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Sphix.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Bers.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/KilS.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Extreme.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Remolque.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Tokyo.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Vinewood.txt' comprobado correctamente.
+[22:45:39] --- COMPROBACION: Mapa 'DERBY/Adrenaline.txt' comprobado correctamente.
+[22:45:39] --- Se han verificado 10 de los 10 mapas importados.
+[22:45:39] 
+
+----------------------------------------------
+[22:45:39]   Sistema Derby 1.10 a 06/11/2018 por adri1. Editado por Psicoloco.
+[22:45:39] ----------------------------------------------
+
+
+[22:45:39] 
+Loading Gamemode(MXTDM~FR [0.3.7])
+[22:45:39] 
+________________________________________
+[22:45:39] ________________________________________
+[22:45:39]            LAdmin Loading...            
+[22:45:39] ________________________________________
+[22:45:39] 
+ -Configuration Settings Loaded
+[22:45:39]  -41 Forbidden Names Loaded
+[22:45:39]  -10 Forbidden Tags Loaded
+[22:45:39]  -92 Forbidden Words Loaded
+[22:45:39] ________________________________________
+[22:45:39]            LAdmin Version 4.0           
+[22:45:39]                 Loaded                  
+[22:45:39] ________________________________________
+[22:45:39]      Date: 23/5/2021  Time: 22:45 :39   
+[22:45:39] ________________________________________
+[22:45:39] ________________________________________
+
+[22:45:39] >--------------------------------------------------------------------------
+[22:45:39] 184 Businesses Successfully loaded and created
+[22:45:40] 1932 Vehicles Successfully loaded and created
+[22:45:40] >--------------------------------------------------------------------------
+[22:45:40] 
+[22:45:40] >--------------------------------------------------------------------------
+[22:45:40] Business and Vehicle Systems Status - 100% - Systems Ready...
+[22:45:40] >--------------------------------------------------------------------------
+[22:45:41]  
+[22:45:41] >----------------------------------<
+[22:45:41] | SATDM ~ Role-Play V9 by MoNeYPiMp|
+[22:45:41] >----------------------------------<
+
+[22:45:41] Number of vehicle models: 180
+[22:45:53] 
+________________________________________
+[22:45:53] ________________________________________
+[22:45:53]            LAdmin Unloaded              
+[22:45:53] ________________________________________
+[22:45:53]      Date: 23/5/2021  Time: 22:45 :53   
+[22:45:53] ________________________________________
+[22:45:53] ________________________________________
+
+[22:45:53] 
++--------------------------+
+[22:45:53] | Yagu's Race script v0.4a |
+[22:45:53] +---------UNLOADED---------+
+
+[22:45:53] [debug] Long callback execution detected (hang or performance issue)
+[22:45:53] [debug] AMX backtrace:
+[22:45:53] [debug] #0 0013d86c in SaveBusinesses () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:19939
+[22:45:53] [debug] #1 00115028 in public BackupInfo () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:17382
+[22:45:53] [debug] #2 00114ff4 in public OnGameModeExit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:17376
+[22:46:05] [debug] Long callback execution detected (hang or performance issue)
+[22:46:05] [debug] AMX backtrace:
+[22:46:05] [debug] #0 00018398 in mS_strtok (string[]=@006c3b08 "205", &index=@006c3b04 5) at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:714
+[22:46:05] [debug] #1 00017684 in LoadModelSelectionMenu (f_name[]=@003d7d24 "skins.txt") at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:638
+[22:46:05] [debug] #2 0001f070 in public Itter_OnGameModeInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:2860
+[22:46:05] [debug] #3 native CallLocalFunction () in samp-server.exe
+[22:46:05] [debug] #4 00018768 in public SSCANF_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\foreach.inc:689
+[22:46:05] [debug] #5 0000913c in public FC_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\sscanf2.inc:211
+[22:46:05] [debug] #6 native CallLocalFunction () in samp-server.exe
+[22:46:05] [debug] #7 00008ca0 in public zcmd_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\CleoFuck.inc:244
+[22:46:05] [debug] #8 native CallLocalFunction () in samp-server.exe
+[22:46:05] [debug] #9 00005a88 in public OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\zcmd.inc:68
+[22:46:05] --- LISTA 'DERBY/lista_derby.txt' OK. Se importaron 10 mapas derby.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Island.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Pirata.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Sphix.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Bers.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/KilS.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Extreme.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Remolque.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Tokyo.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Vinewood.txt' comprobado correctamente.
+[22:46:05] --- COMPROBACION: Mapa 'DERBY/Adrenaline.txt' comprobado correctamente.
+[22:46:05] --- Se han verificado 10 de los 10 mapas importados.
+[22:46:05] 
+
+----------------------------------------------
+[22:46:05]   Sistema Derby 1.10 a 06/11/2018 por adri1. Editado por Psicoloco.
+[22:46:05] ----------------------------------------------
+
+
+[22:46:05] 
+Loading Gamemode(MXTDM~FR [0.3.7])
+[22:46:05] 
+________________________________________
+[22:46:05] ________________________________________
+[22:46:05]            LAdmin Loading...            
+[22:46:05] ________________________________________
+[22:46:05] 
+ -Configuration Settings Loaded
+[22:46:05]  -41 Forbidden Names Loaded
+[22:46:05]  -10 Forbidden Tags Loaded
+[22:46:05]  -92 Forbidden Words Loaded
+[22:46:05] ________________________________________
+[22:46:05]            LAdmin Version 4.0           
+[22:46:05]                 Loaded                  
+[22:46:05] ________________________________________
+[22:46:05]      Date: 23/5/2021  Time: 22:46 :5   
+[22:46:05] ________________________________________
+[22:46:05] ________________________________________
+
+[22:46:05] >--------------------------------------------------------------------------
+[22:46:05] 184 Businesses Successfully loaded and created
+[22:46:05] 1932 Vehicles Successfully loaded and created
+[22:46:05] >--------------------------------------------------------------------------
+[22:46:05] 
+[22:46:05] >--------------------------------------------------------------------------
+[22:46:05] Business and Vehicle Systems Status - 100% - Systems Ready...
+[22:46:05] >--------------------------------------------------------------------------
+[22:46:07]  
+[22:46:07] >----------------------------------<
+[22:46:07] | SATDM ~ Role-Play V9 by MoNeYPiMp|
+[22:46:07] >----------------------------------<
+
+[22:46:07] Number of vehicle models: 180
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:47:11] 
+[22:47:11] Server Plugins
+[22:47:11] --------------
+[22:47:11]  Loading plugin: crashdetect.dll
+[22:47:11]   CrashDetect plugin 4.20
+[22:47:11]   Loaded.
+[22:47:11]  Loading plugin: streamer.dll
+[22:47:11] 
+
+*** Streamer Plugin v2.9.4 by Incognito loaded ***
+
+[22:47:11]   Loaded.
+[22:47:11]  Loading plugin: sscanf.dll
+[22:47:11] 
+
+[22:47:11]  ===============================
+
+[22:47:11]       sscanf plugin loaded.     
+
+[22:47:11]          Version:  2.8.3        
+
+[22:47:11]   (c) 2018 Alex "Y_Less" Cole  
+
+[22:47:11]  ===============================
+
+[22:47:11]   Loaded.
+[22:47:11]  Loading plugin: YSF.dll
+[22:47:11] 
+
+[22:47:11]  ===============================
+
+[22:47:11]         YSF 0.3.00 loaded
+
+[22:47:11]    (c) 2008 Alex "Y_Less" Cole
+
+[22:47:11]     Operating System: Windows
+
+[22:47:11]  ===============================
+
+[22:47:11]   Loaded.
+[22:47:11]  Loaded 4 plugins.
+
+[22:47:12] 
+[22:47:12] Filterscripts
+[22:47:12] ---------------
+[22:47:12]   Loading filterscript 'Objetos.amx'...
+[22:47:12] [debug] Long callback execution detected (hang or performance issue)
+[22:47:12] [debug] AMX backtrace:
+[22:47:12] [debug] #0 00099134 in public OnFilterScriptInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\filterscripts\Objetos.pwn:3602
+[22:47:12] 11827 Objetos creados y cargados
+[22:47:12]   Loading filterscript 'getwet.amx'...
+[22:47:12]  
+[22:47:12]  
+[22:47:12]  
+[22:47:12]  ======================================= 
+[22:47:12]  |                                     | 
+[22:47:12]  |        YSI version 4.00.0001        | 
+[22:47:12]  |        By Alex "Y_Less" Cole        | 
+[22:47:12]  |                                     | 
+[22:47:12]  ======================================= 
+[22:47:12]  
+[22:47:12] [debug] Long callback execution detected (hang or performance issue)
+[22:47:12] [debug] AMX backtrace:
+[22:47:12] [debug] #0 0000ddb8 in ?? (1850303844) in getwet.amx
+[22:47:12] [debug] #1 0002d1c8 in ?? (-204633, -204618) in getwet.amx
+[22:47:12] [debug] #2 0002d590 in ?? (-205920, -205912) in getwet.amx
+[22:47:12] [debug] #3 0002d894 in ?? () in getwet.amx
+[22:47:12] [debug] #4 0002c4f4 in ?? () in getwet.amx
+[22:47:12] [debug] #5 0002e1c0 in public AMX_OnScriptInit () in getwet.amx
+[22:47:12] [debug] #6 00008e2c in public Debug_OnScriptInit () in getwet.amx
+[22:47:12] [debug] #7 00001308 in public YVers_OnScriptInit () in getwet.amx
+[22:47:12] [debug] #8 00000e1c in public ScriptInit_OnScriptInit () in getwet.amx
+[22:47:12] [debug] #9 00000a78 in public zcmd_OnFilterScriptInit () in getwet.amx
+[22:47:12] [debug] #10 native CallLocalFunction () in samp-server.exe
+[22:47:12] [debug] #11 000002c8 in public OnFilterScriptInit () in getwet.amx
+[22:47:12]   Loaded 2 filterscripts.
+
+[22:47:12] [debug] Long callback execution detected (hang or performance issue)
+[22:47:12] [debug] AMX backtrace:
+[22:47:12] [debug] #0 00017358 in LoadModelSelectionMenu (f_name[]=@003d7d24 "skins.txt") at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\mSelection.inc:617
+[22:47:12] [debug] #1 0001f070 in public Itter_OnGameModeInit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:2860
+[22:47:12] [debug] #2 native CallLocalFunction () in samp-server.exe
+[22:47:12] [debug] #3 00018768 in public SSCANF_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\foreach.inc:689
+[22:47:12] [debug] #4 0000913c in public FC_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\sscanf2.inc:211
+[22:47:12] [debug] #5 native CallLocalFunction () in samp-server.exe
+[22:47:12] [debug] #6 00008ca0 in public zcmd_OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\CleoFuck.inc:244
+[22:47:12] [debug] #7 native CallLocalFunction () in samp-server.exe
+[22:47:12] [debug] #8 00005a88 in public OnGameModeInit () at D:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\pawno\include\zcmd.inc:68
+[22:47:12] --- LISTA 'DERBY/lista_derby.txt' OK. Se importaron 10 mapas derby.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Island.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Pirata.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Sphix.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Bers.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/KilS.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Extreme.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Remolque.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Tokyo.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Vinewood.txt' comprobado correctamente.
+[22:47:12] --- COMPROBACION: Mapa 'DERBY/Adrenaline.txt' comprobado correctamente.
+[22:47:12] --- Se han verificado 10 de los 10 mapas importados.
+[22:47:12] 
+
+----------------------------------------------
+[22:47:12]   Sistema Derby 1.10 a 06/11/2018 por adri1. Editado por Psicoloco.
+[22:47:12] ----------------------------------------------
+
+
+[22:47:12] 
+Loading Gamemode(MXTDM~FR [0.3.7])
+[22:47:12] 
+________________________________________
+[22:47:12] ________________________________________
+[22:47:12]            LAdmin Loading...            
+[22:47:12] ________________________________________
+[22:47:12] 
+ -Configuration Settings Loaded
+[22:47:12]  -41 Forbidden Names Loaded
+[22:47:12]  -10 Forbidden Tags Loaded
+[22:47:12]  -92 Forbidden Words Loaded
+[22:47:12] ________________________________________
+[22:47:12]            LAdmin Version 4.0           
+[22:47:12]                 Loaded                  
+[22:47:12] ________________________________________
+[22:47:12]      Date: 23/5/2021  Time: 22:47 :12   
+[22:47:12] ________________________________________
+[22:47:12] ________________________________________
+
+[22:47:12] >--------------------------------------------------------------------------
+[22:47:12] 184 Businesses Successfully loaded and created
+[22:47:12] 1932 Vehicles Successfully loaded and created
+[22:47:12] >--------------------------------------------------------------------------
+[22:47:12] 
+[22:47:12] >--------------------------------------------------------------------------
+[22:47:12] Business and Vehicle Systems Status - 100% - Systems Ready...
+[22:47:12] >--------------------------------------------------------------------------
+[22:47:13]  
+[22:47:13] >----------------------------------<
+[22:47:13] | SATDM ~ Role-Play V9 by MoNeYPiMp|
+[22:47:13] >----------------------------------<
+
+[22:47:13] Number of vehicle models: 180
+[22:47:16] --- Server Shutting Down.
+[22:47:16] 
+________________________________________
+[22:47:16] ________________________________________
+[22:47:16]            LAdmin Unloaded              
+[22:47:16] ________________________________________
+[22:47:16]      Date: 23/5/2021  Time: 22:47 :16   
+[22:47:16] ________________________________________
+[22:47:16] ________________________________________
+
+[22:47:16] 
++--------------------------+
+[22:47:16] | Yagu's Race script v0.4a |
+[22:47:16] +---------UNLOADED---------+
+
+[22:47:16] [debug] Long callback execution detected (hang or performance issue)
+[22:47:16] [debug] AMX backtrace:
+[22:47:16] [debug] #0 0013d7c0 in SaveBusinesses () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:19939
+[22:47:16] [debug] #1 00115028 in public BackupInfo () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:17382
+[22:47:16] [debug] #2 00114ff4 in public OnGameModeExit () at d:\Nube Megasync\Trabajos Programacion\Matrix (27-10-2019-)\gamemodes\SATDM_v9.pwn:17376
+[22:47:16] 
+
+*** Streamer Plugin v2.9.4 by Incognito unloaded ***
+
+[22:47:16] 
+
+[22:47:16]  ===============================
+
+[22:47:16]      sscanf plugin unloaded.    
+
+[22:47:16]  ===============================
+
+[22:47:16] 
+
+[22:47:16]  ==============
+
+[22:47:16]   YSF unloaded
+
+[22:47:16]  ==============
