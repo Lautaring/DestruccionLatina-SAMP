@@ -11,9 +11,9 @@
 
 18/05/2021
 *Solución al problema de poder utilizar el comando /armas en deathmatchs.
-*Solución a las explosiones del SniperDM (se activaban las balas explosivas luego de la primera muerte).
+*Solución a las explosiones del SniperDM (se activaban las balas explosivas luego de la primera muerte, pero tenian que activarse cuando el jugador digitara el comando /sniperdm).
 *Las explosiones de SniperDM ahora son mas grandes.
-*Solución al bug cuando se utiliza el comando /salir que sino estabas en ningun lugar te mandaba a las coordenadas 0,0,0.
+*Solución al bug cuando se utiliza el comando /salir que sino estabas en ningun deathmatch, carrera, derby o en tu casa te mandaba a las coordenadas 0,0,0.
 *Solución a problemas al devolver armas guardadas y mejor reutilización del código.
 *Modificación del comando /reglas.
 *Nuevo sistema de globo aerostático.
@@ -24,6 +24,11 @@
 *Nuevo sistema de control del vehiculo, comando /vcontrol.
 *Nuevo dialog agregado, tercera página de OtherCmds.
 
+23/05/2021
+*Se agrego el comando /drogas.
+*Se acomodaron los DIALOGS del comando /othercmds.
+*Se subio todo el proyecto a GitHub y ahora se maneja el control de versiones a traves de Git.
+*Se añadió una función a el sistema de carreras. Ahora cuando el usuario presione la tecla "Y" volverá al ultimo CheckPoint atravesado.
 
 */
 //-----------------------------Credits go to:
@@ -113,6 +118,18 @@ new Attempts[MAX_PLAYERS];
 new SoloSuenaUnaVez[MAX_PLAYERS];//MUSICA SPAWN
 
 //===============================|Nuevas Cosas|=================================
+new Float: PosCP_X,
+Float: PosCP_Y,
+Float: PosCP_Z;
+
+enum Datos
+{
+	UsaDrogas
+};
+new INFO[MAX_PLAYERS][Datos];
+#if defined Drogas
+#endif
+#define Drogas 1042
 new Control[MAX_PLAYERS][12];
 #define   DIALOGO_CONTROL  1234    //CONTROL DEL VEHICULO (ABRIR CAPO, MALETEO, ALARMA, ETC)
 #define AnimSexo                14268
@@ -6394,6 +6411,7 @@ public OnPlayerConnect(playerid)
 	RobbedPlyRecent[playerid] = 0;
 	beenrobbedrecently[playerid] = 0;
     fixedcarrecent[playerid] =0;
+	INFO[playerid][UsaDrogas] = 0;
 	LoadPlayer(playerid);
    	return 1;
 }
@@ -7044,6 +7062,7 @@ public OnPlayerExitVehicle(playerid, vehicleid)
 	return 1;
 }
 
+
 public OnPlayerEnterRaceCheckpoint(playerid)
 {
 	if(CPProgess[playerid] == TotalCP -1)
@@ -7101,6 +7120,7 @@ public OnPlayerEnterRaceCheckpoint(playerid)
 		    }
 		}
 		FinishCount++;
+		JoinCount--;
 		GivePlayerMoney(playerid, Prize[0]);
 		SetPlayerScore(playerid, GetPlayerScore(playerid) + Prize[1]);
 		DisablePlayerRaceCheckpoint(playerid);
@@ -7119,6 +7139,7 @@ public OnPlayerEnterRaceCheckpoint(playerid)
         //format(stringxd, sizeof(stringxd), "~n~~n~~n~~n~~n~~n~~n~~n~~r~Checkpoint:~w~ %d/%d",CPProgess[playerid]+1, TotalCP);
         //GameTextForPlayer(playerid,stringxd,2000,3);
 	    PlayerPlaySound(playerid, 1137, 0.0, 0.0, 0.0);
+		GetPlayerPos(playerid, PosCP_X, PosCP_Y, PosCP_Z);
 	}
     return 1;
 }
@@ -7416,6 +7437,7 @@ public OnPlayerSpawn(playerid)
 		else if(Colores == 9) SetPlayerColor(playerid,0xFFD700FF);
 		else if(Colores == 10) SetPlayerColor(playerid,0x993300AA);
 	}
+	INFO[playerid][UsaDrogas] = 0;
 	//=====================================DEVOLVER ARMAS GUARDADAS==================================//
 	ResetPlayerWeapons(playerid);
 	DevolverArmasGuardadas(playerid);
@@ -8203,7 +8225,7 @@ CMD:othercmds(playerid,params[]){
  	strcat(OtherCmds, "{C0C0C0}/HOLATODOS\t{FF0000}    PARA SALUDAR A TODOS.\n");
  	strcat(OtherCmds, "{C0C0C0}/CHAUTODOS\t{FF0000}    PARA DESPEDIRTE DE TODOS.\n");
 	strcat(OtherCmds, "{C0C0C0}/PARACAIDAS\t{FF0000}    PARA SACAR UN PARACAIDAS.\n");
-	strcat(OtherCmds, "{C0C0C0}/BUGS\t{FF0000}    PARA REPORTAR BUGS DEL SERVIDOR.\n");
+	strcat(OtherCmds, "{C0C0C0}/BUGS\t\t{FF0000}    PARA REPORTAR BUGS DEL SERVIDOR.\n");
 	strcat(OtherCmds, "{C0C0C0}/SUGERENCIAS\t{FF0000}    SUGERIR MEJORAS PARA EL SERVIDOR.\n");
 	ShowPlayerDialog(playerid,OtherCmds2, DIALOG_STYLE_MSGBOX, "{FF0000}OTROS COMANDOS {FFFFFF}[1/3]", OtherCmds, ">>", "Salir");
 	return 1;
@@ -8736,6 +8758,9 @@ CMD:carrera(playerid,params[])
 	TogglePlayerControllable(playerid, 0);
 	SetPlayerVirtualWorld(playerid, 0);
 	SetPlayerInterior(playerid,0);
+	PosCP_X=0;
+	PosCP_Y=0;
+	PosCP_Z=0;
 	//PlayerInfo[playerid][DoorsLocked] = 1;
 	return 1;
 }
@@ -9123,11 +9148,19 @@ CMD:pararanim(playerid,params[])
 	SendClientMessage(playerid,red,"|Info| »{EAEAEA} Animación detenida.");
 	return 1;
 }
-CMD:anims(playerid,params[]){
+CMD:anims(playerid,params[])
+{
 	#pragma unused params
 	ShowPlayerDialog(playerid,2014,DIALOG_STYLE_MSGBOX, "{FF0000}ANIMACIONES", "{FFA500}/Rendirse, /RollFall, /Borracho, /Arrestar, /Amenazar, /Boxear.\n/Paja, /Agredido, /Herido, /Recostarse, /Pararse, /Taichi.\n/Cubrirse, /Vomitar, /Comer, /Palmada, /Agonizar, /Piquero.\n/Mear, /Spray, /Shop, /Sentarse, /Llamar, /Colgar.\n/Rodar, /Sanar, /Dormir, /echarse, /asientosexy, /Adolorido.\n/Tullio, /Mujer, /Wooo, /Bailar [1-4], /Fumar, /Vino.", "Aceptar", "");
 	return 1;
 }
+
+CMD:drogas(playerid,params[])
+{
+    ShowPlayerDialog(playerid, Drogas, DIALOG_STYLE_LIST, "Menu de Drogas", "Marihuana\t\t{00FF00}$4.000\t\t{FF0000}El efecto durara 3 minutos\nHeroina\t\t{00FF00}$5.000\t\t{FF0000}El efecto durara 4 minutos\nCocaina\t\t{00FF00}$5.000\t\t{FF0000}El efecto durara 4 minutos\nExtasis\t\t\t{00FF00}$7.000\t\t{FF0000}El efecto durara 5 minutos\nLSD\t\t\t{00FF00}$10.000\t\t{FF0000}El efecto durara 8 minutos\nMetanfetamina\t\t{00FF00}$10.000\t\t{FF0000}El efecto durara 8 minutos", "Seleccionar", "Cancelar");
+	 return 1;
+}
+
 
 CMD:sexo(playerid, params[])
 {
@@ -17140,6 +17173,17 @@ public OnPlayerKeyStateChange(playerid, newkeys, oldkeys)
 		}
 	  }
 	}
+	if (Joined[playerid]==true)
+	{
+		if(newkeys == KEY_YES)
+		{
+			if(PosCP_X!=0 && PosCP_Y!=0 && PosCP_Z!=0)
+			{
+				new vehicleid = GetPlayerVehicleID(playerid);
+				SetVehiclePos(vehicleid, PosCP_X, PosCP_Y, PosCP_Z);
+			}
+		}
+	}
    	if (newkeys == KEY_SUBMISSION)
 	{
 		new vehicleid = GetPlayerVehicleID(playerid);
@@ -21615,6 +21659,120 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
  		return Kick(playerid);
 		}
     }
+	if(dialogid == Drogas)
+    {
+     	if(response)
+     	{
+     		if(listitem==0)
+     		{
+				if(INFO[playerid][UsaDrogas] == 1) return SendClientMessage(playerid,Color,"{FF0000}[ERROR]:{FFFFFF} Ya estas drogado, espera a que se termine el efecto.");
+				if(INFO[playerid][UsaDrogas] == 0)
+				if(GetPlayerMoney(playerid) < 4000) return SendClientMessage(playerid, 0xFF0000FF, "{FF0000}[ERROR]:{FFFFFF} Debes tener {00FF00}$4.000{FFFFFF} para comprar {006400}Marihuana.");
+				new Byte[128],
+				Nombre[MAX_PLAYER_NAME];
+				GetPlayerName(playerid,Nombre,sizeof(Nombre));
+				format(Byte,sizeof(Byte),"{FF0000}[DROGAS]:{0080FF} %s{FFFFFF} Esta drogado y los violara a todos.",Nombre);
+				SendClientMessageToAll(Color,Byte);
+				GameTextForPlayer(playerid, "~w~Modo Marihuana~n~~r~Activado", 3000, 3);
+				SetTimerEx("TerminarEfectoDeLaDroga", 180000, 0,"e",playerid);
+				SetTimerEx("ComenzarEfectoDeDroga", 500, 0,"e",playerid);
+				SetPlayerWeather(playerid, -70);
+				GivePlayerMoney(playerid, -4000);
+				SetPlayerDrunkLevel(playerid, 7000);
+				ApplyAnimation(playerid,"ped","Smoke_in_car",4.1,1,1,1,1,1);
+			}
+     		if(listitem==1)
+     		{
+     			if(INFO[playerid][UsaDrogas] == 1) return SendClientMessage(playerid,Color,"{FF0000}[ERROR]:{FFFFFF} Ya estas drogado, espera a que se termine el efecto.");
+				if(INFO[playerid][UsaDrogas] == 0)
+				if(GetPlayerMoney(playerid) < 5000) return SendClientMessage(playerid, 0xFF0000FF, "{FF0000}[ERROR]:{FFFFFF} ¡Debes tener {00FF00}$5.000{FFFFFF} Para comprar {006400}Heroina!");
+				new Byte[128],
+				Nombre[MAX_PLAYER_NAME];
+				GetPlayerName(playerid,Nombre,sizeof(Nombre));
+				format(Byte,sizeof(Byte),"{FF0000}[DROGAS]:{0080FF} %s{FFFFFF} Esta drogado y los violara a todos.",Nombre);
+				SendClientMessageToAll(Color,Byte);
+				GameTextForPlayer(playerid, "~w~Modo Heroina~n~~r~Activado", 3000, 3);
+				SetTimerEx("TerminarEfectoDeLaDroga", 240000, 0,"e",playerid);
+				SetTimerEx("ComenzarEfectoDeDroga", 500, 0,"e",playerid);
+				SetPlayerWeather(playerid, -50);
+				GivePlayerMoney(playerid, -5000);
+				SetPlayerDrunkLevel(playerid, 10000);
+				ApplyAnimation(playerid,"ped","Smoke_in_car",4.1,1,1,1,1,1);
+     		}
+     		if(listitem==2)
+     		{
+				if(INFO[playerid][UsaDrogas] == 1) return SendClientMessage(playerid,Color,"{FF0000}[ERROR]:{FFFFFF} Ya estas drogado, espera a que se termine el efecto.");
+				if(INFO[playerid][UsaDrogas] == 0)
+				if(GetPlayerMoney(playerid) < 5000) return SendClientMessage(playerid, 0xFF0000FF, "{FF0000}[ERROR]:{FFFFFF} ¡Debes tener {00FF00}$5.000{FFFFFF} Para comprar{006400} Cocaina!");
+				new Byte[128],
+				Nombre[MAX_PLAYER_NAME];
+				GetPlayerName(playerid,Nombre,sizeof(Nombre));
+				format(Byte,sizeof(Byte),"{FF0000}[DROGAS]:{0080FF} %s{FFFFFF} Esta drogado y los violara a todos.",Nombre);
+				SendClientMessageToAll(Color,Byte);
+				GameTextForPlayer(playerid, "~w~Modo Cocaina~n~~r~Activado", 3000, 3);
+				SetTimerEx("TerminarEfectoDeLaDroga", 240000, 0,"e",playerid);
+				SetTimerEx("ComenzarEfectoDeDroga", 500, 0,"e",playerid);
+				SetPlayerWeather(playerid, -40);
+				GivePlayerMoney(playerid, -5000);
+				SetPlayerDrunkLevel(playerid, 20000);
+				ApplyAnimation(playerid,"ped","Smoke_in_car",4.1,1,1,1,1,1);
+     		}
+     		if(listitem==3)
+     		{
+				if(INFO[playerid][UsaDrogas] == 1) return SendClientMessage(playerid,Color,"{FF0000}[ERROR]:{FFFFFF} Ya estas drogado, espera a que se termine el efecto.");
+				if(INFO[playerid][UsaDrogas] == 0)
+				if(GetPlayerMoney(playerid) < 7000) return SendClientMessage(playerid, 0xFF0000FF, "{FF0000}[ERROR]:{FFFFFF} ¡Debes tener {00FF00}$7.000{FFFFFF} Para comprar {006400}Extasis!");
+				new Byte[128],
+				Nombre[MAX_PLAYER_NAME];
+				GetPlayerName(playerid,Nombre,sizeof(Nombre));
+				format(Byte,sizeof(Byte),"{FF0000}[DROGAS]:{0080FF} %s{FFFFFF} Esta drogado y los violara a todos.",Nombre);
+				SendClientMessageToAll(Color,Byte);
+				GameTextForPlayer(playerid, "~w~Modo Extasis~n~~r~Activado", 3000, 3);
+				SetTimerEx("TerminarEfectoDeLaDroga", 300000, 0,"e",playerid);
+				SetTimerEx("ComenzarEfectoDeDroga", 500, 0,"e",playerid);
+				SetPlayerWeather(playerid, -32);
+				GivePlayerMoney(playerid, -7000);
+				SetPlayerDrunkLevel(playerid, 30000);
+				ApplyAnimation(playerid,"ped","Smoke_in_car",4.1,1,1,1,1,1);
+     		}
+     		if(listitem==4)
+     		{
+				if(INFO[playerid][UsaDrogas] == 1) return SendClientMessage(playerid,Color,"{FF0000}[ERROR]:{FFFFFF} Ya estas drogado, espera a que se termine el efecto.");
+				if(INFO[playerid][UsaDrogas] == 0)
+				if(GetPlayerMoney(playerid) < 10000) return SendClientMessage(playerid, 0xFF0000FF, "{FF0000}[ERROR]:{FFFFFF} ¡Debes tener 00FF00}$10.000{FFFFFF} Para comprar {006400}LSD!");
+				new Byte[128],
+				Nombre[MAX_PLAYER_NAME];
+				GetPlayerName(playerid,Nombre,sizeof(Nombre));
+				format(Byte,sizeof(Byte),"{FF0000}[DROGAS]:{0080FF} %s{FFFFFF} Esta drogado y los violara a todos.",Nombre);
+				SendClientMessageToAll(Color,Byte);
+				GameTextForPlayer(playerid, "~w~Modo LSD~n~~r~Activado", 3000, 3);
+				SetTimerEx("TerminarEfectoDeLaDroga", 480000, 0,"e",playerid);
+				SetTimerEx("ComenzarEfectoDeDroga", 500, 0,"e",playerid);
+				SetPlayerWeather(playerid, -47);
+				GivePlayerMoney(playerid, -10000);
+				SetPlayerDrunkLevel(playerid, 40000);
+				ApplyAnimation(playerid,"ped","Smoke_in_car",4.1,1,1,1,1,1);
+     		}
+     		if(listitem==5)
+     		{
+				if(INFO[playerid][UsaDrogas] == 1) return SendClientMessage(playerid,Color,"{FF0000}[ERROR]:{FFFFFF} Ya estas drogado, espera a que se termine el efecto.");
+				if(INFO[playerid][UsaDrogas] == 0)
+				if(GetPlayerMoney(playerid) < 10000) return SendClientMessage(playerid, 0xFF0000FF, "{FF0000}[ERROR]:{FFFFFF} ¡Debes tener {00FF00}$10.000{FFFFFF} Para comprar {006400}Metanfetamina!");
+				new Byte[128],
+				Nombre[MAX_PLAYER_NAME];
+				GetPlayerName(playerid,Nombre,sizeof(Nombre));
+				format(Byte,sizeof(Byte),"{FF0000}[DROGAS]:{0080FF} %s{FFFFFF} Esta drogado y los violara a todos.",Nombre);
+				SendClientMessageToAll(Color,Byte);
+				GameTextForPlayer(playerid, "~w~Modo Metanfetamina~n~~r~Activado", 3000, 3);
+				SetTimerEx("TerminarEfectoDeLaDroga", 480000, 0,"e",playerid);
+				SetTimerEx("ComenzarEfectoDeDroga", 500, 0,"e",playerid);
+				SetPlayerWeather(playerid, -1);
+				GivePlayerMoney(playerid, -10000);
+				SetPlayerDrunkLevel(playerid, 50000);
+				ApplyAnimation(playerid,"ped","Smoke_in_car",4.1,1,1,1,1,1);
+     		}
+     	}
+    }
 	if(dialogid == DIALOGO_CONTROL)
 		{
 			if(response)
@@ -24372,7 +24530,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 	{
 		if(response)
 		{
-			new Othercmds[1280];
+			new Othercmds[1600];
 			strcat(Othercmds, "{C0C0C0}/KILL\t\t{FF0000}    PARA SUICIDARTE.\n");
 			strcat(Othercmds, "{C0C0C0}/CLIMAS\t{FF0000}    PARA CAMBIAR EL CLIMA.\n");
 			strcat(Othercmds, "{C0C0C0}/PM\t\t{FF0000}    PARA ENVIAR MENSAJES PRIVADOS.\n");
@@ -24391,20 +24549,21 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
 			strcat(Othercmds, "{C0C0C0}/ANIMS\t\t{FF0000}    COMANDOS DE ANIMACION.\n");
 			strcat(Othercmds, "{C0C0C0}/NEONES\t{FF0000}    NEONES PARA TU VEHICULO.\n");
 			strcat(Othercmds, "{C0C0C0}/CARRERA\t{FF0000}    PARA JUGAR UNA CARRERA.\n");
-			strcat(Othercmds, "{C0C0C0}/DERBY\t{FF0000}    PARA JUGAR EL DERBY.\n");
+			strcat(Othercmds, "{C0C0C0}/DERBY\t\t{FF0000}    PARA JUGAR EL DERBY.\n");
 			strcat(Othercmds, "{C0C0C0}/MENUIMAGEN\t{FF0000}    LOS MENUS TE SALDRAN CON IMAGENES CLICKEABLES.\n");
-			strcat(Othercmds, "{C0C0C0}/SEXO\t{FF0000}    ANIMACIONES DE SEXO.\n");
-			strcat(Othercmds, "{C0C0C0}/SEXO2\t{FF0000}    MAS ANIMACIONES DE SEXO.\n");
-			ShowPlayerDialog(playerid, OtherCmds3, DIALOG_STYLE_MSGBOX, "{FF0000}OTROS COMANDOS {FFFFFF}[2/3]",Othercmds,"Aceptar", "");
+			strcat(Othercmds, "{C0C0C0}/SEXO\t\t{FF0000}    ANIMACIONES DE SEXO.\n");
+			strcat(Othercmds, "{C0C0C0}/SEXO2\t\t{FF0000}    MAS ANIMACIONES DE SEXO.\n");
+			ShowPlayerDialog(playerid, OtherCmds3, DIALOG_STYLE_MSGBOX, "{FF0000}OTROS COMANDOS {FFFFFF}[2/3]", Othercmds, ">>", "Salir");
 		}
 	}
 	if(dialogid == OtherCmds3)
 	{
 		if(response)
 		{
-			new OtherCmds[1280];
-			strcat(OtherCmds, "{C0C0C0}/VCONTROL\t{FF0000}	PARA TENER EL CONTROL DE TU VEHICULO.");
-			ShowPlayerDialog(playerid, -1, DIALOG_STYLE_MSGBOX, "{FF0000}OTROS COMANDOS {FFFFFF}[3/3]",OtherCmds,"Aceptar","");
+			new OtherCmds[1600];
+			strcat(OtherCmds, "{C0C0C0}/VCONTROL      \t{FF0000}PARA TENER EL CONTROL DE TU VEHICULO.\n");
+			strcat(OtherCmds, "{C0C0C0}/DROGAS        \t{FF0000}PARA CONSUMIR DROGAS.");
+			ShowPlayerDialog(playerid, 0, DIALOG_STYLE_MSGBOX, "{FF0000}OTROS COMANDOS {FFFFFF}[3/3]",OtherCmds,"Salir","");
 		}
 	}
 	if(dialogid == Comandos)
@@ -28082,4 +28241,28 @@ stock ObtenerNombre(playerid)
 	new NombreJugador[MAX_PLAYER_NAME];
 	GetPlayerName(playerid, NombreJugador, sizeof(NombreJugador));
 	return NombreJugador;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////   Funtion TerminarEfectoDeDroga   //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+forward TerminarEfectoDeLaDroga(playerid);
+public TerminarEfectoDeLaDroga(playerid)
+{
+    INFO[playerid][UsaDrogas] = 0;
+    SetPlayerWeather(playerid, 3);
+    SetPlayerTime(playerid,12,0);
+    SetPlayerDrunkLevel(playerid, 0);
+    SendClientMessage(playerid, Color, "{FF0000}[DROGAS]:{FFFFFF} El efecto de la droga ha terminado.");
+    GameTextForPlayer(playerid, "~w~El efecto de la Droga ha~n~~r~Terminado", 3000, 3);
+	return 1;
+}
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////   Funtion ComenzarEfectoDeDroga   //////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+forward ComenzarEfectoDeDroga(playerid);
+public ComenzarEfectoDeDroga(playerid)
+{
+    INFO[playerid][UsaDrogas] = 1;
+    return 1;
 }

@@ -6,3 +6,7 @@
 [16.5.2021 2:31:5] {EAEAEA}Putaputa(1) ha sido expulsado. {FF0000}(Posible Car Crasher)
 [18.5.2021 6:16:20] {EAEAEA}Gowther(7) ha sido expulsado. {FF0000}(Posible Weapon Crasher)
 [18.5.2021 6:16:20] {EAEAEA}Psicoloco(2) ha sido expulsado. {FF0000}(Posible Weapon Crasher)
+[19.5.2021 5:34:58] {EAEAEA}Psicoloco(4) ha sido expulsado. {FF0000}(Posible Weapon Crasher)
+[19.5.2021 5:34:58] {EAEAEA}Putaputa(0) ha sido expulsado. {FF0000}(Posible Weapon Crasher)
+[22.5.2021 5:58:20] {EAEAEA}Psicoloco(1) ha sido expulsado. {FF0000}(Posible Weapon Crasher)
+[23.5.2021 6:41:35] {EAEAEA}Ciro(1) ha sido expulsado. {FF0000}(Posible Car Crasher)

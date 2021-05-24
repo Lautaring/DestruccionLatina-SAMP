@@ -12073,6 +12073,11 @@
 
 
 
+
+
+
+
+
 181.179.18.238=Greencali
 190.207.150.143=JESUS
 190.198.244.220=Kaiky_leoX
@@ -15259,6 +15264,11 @@
 190.200.0.104=[J]ose_[F]oxTM,jose.PRO.vnzl,Reinaldo_vnzln
 200.125.245.209=XxChichicoxX
 186.91.223.233=Richardd_Sanchez,HectorGamerYT,Enmanuel,RICHARDDxGTA,ZeeMods,Trolencio911,DiegoMods,samp,yonex,PandaMx,JOTTA05,Ninja_boy,anonymous,tiogilipollas,hola,matrix,$MATRIX$,Jose,Angel_Sanchez,Richard_Sanchez,XxMANUxX,Tyzon,Alejandro,Andreina,Dark
+
+
+
+
+
 
 
 
@@ -28716,6 +28726,11 @@
 
 
 
+
+
+
+
+
 42.90.152.162=macong
 91.205.209.136=Shadow
 113.201.88.75=CHINA
@@ -29257,3 +29272,8 @@
 200.123.37.116=sh1nobu
 201.252.92.156=LiuKangHD
 190.228.247.70=Thomas_Muller
+190.226.73.222=Thomas_Muller
+190.225.94.159=LiuKangHD
+200.117.129.7=Putaputa
+190.228.245.250=Putaputa
+187.188.76.33=CTRS
